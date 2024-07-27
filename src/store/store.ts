@@ -12,6 +12,7 @@ const makeStore = () =>
       [uiSlice.name]: uiSlice.reducer,
       [withdrawSlice.name]: withdrawSlice.reducer
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     devTools: true
   });
 
