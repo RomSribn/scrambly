@@ -11,5 +11,13 @@ interface Card {
   commission?: number;
 }
 
+interface IconCommonProps {
+  className?: string;
+  /**
+   * The fill of the icon.
+   */
+  color?: string;
+}
+
 export { CardType }; // Exporting the enum
-export type { Card }; // Exporting the interface
+export type { Card, IconCommonProps }; // Exporting the interface

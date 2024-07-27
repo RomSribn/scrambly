@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CoinIcon = () => (
   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="9.99998" cy="10.5" r="7.99998" fill="url(#paint0_linear_3_40772)" />
@@ -19,8 +17,8 @@ const CoinIcon = () => (
         width="7.44922"
         height="9.5449"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -40,8 +38,8 @@ const CoinIcon = () => (
         x2="9.99998"
         y2="18.5"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FAAD31" />
-        <stop offset="1" stop-color="#FF6915" />
+        <stop stopColor="#FAAD31" />
+        <stop offset="1" stopColor="#FF6915" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_3_40772"
@@ -50,8 +48,8 @@ const CoinIcon = () => (
         x2="9.99956"
         y2="17.5621"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FF6915" />
-        <stop offset="1" stop-color="#FAAD31" />
+        <stop stopColor="#FF6915" />
+        <stop offset="1" stopColor="#FAAD31" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_3_40772"
@@ -60,8 +58,8 @@ const CoinIcon = () => (
         x2="10.0006"
         y2="16.7897"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FAAD31" />
-        <stop offset="1" stop-color="#FF6915" />
+        <stop stopColor="#FAAD31" />
+        <stop offset="1" stopColor="#FF6915" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_3_40772"
@@ -70,8 +68,8 @@ const CoinIcon = () => (
         x2="10.0269"
         y2="15.0795"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#F5F5F5" />
-        <stop offset="1" stop-color="#FAAD31" />
+        <stop stopColor="#F5F5F5" />
+        <stop offset="1" stopColor="#FAAD31" />
       </linearGradient>
     </defs>
   </svg>

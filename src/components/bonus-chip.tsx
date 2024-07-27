@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { GiftIcon } from 'assets/icons/index';
 
 interface BonusChipProps {

@@ -1,17 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppState } from '../store';
 import { HYDRATE } from 'next-redux-wrapper';
+
+interface WithdrawalCount {
+  [key: string]: number;
+}
 
 export interface userState {
   balance: number;
   isFrozen: boolean;
-  withdrawalsCount: number;
+  withdrawalsCount: Record<number, number>;
 }
 
 const initialState: userState = {
-  balance: 0,
+  balance: 1000,
   isFrozen: false,
-  withdrawalsCount: 0
+  withdrawalsCount: {}
 };
 
 export const userSlice = createSlice({
@@ -24,8 +28,11 @@ export const userSlice = createSlice({
     setIsFrozen: (state, action) => {
       state.isFrozen = action.payload;
     },
-    setWithdrawalsCount: (state, action) => {
-      state.withdrawalsCount = action.payload;
+    setWithdrawalsCount: (state, action: PayloadAction<number>) => {
+      state.withdrawalsCount = {
+        ...state.withdrawalsCount,
+        [action.payload]: (state.withdrawalsCount[action.payload] || 0) + 1
+      };
     }
   },
   // Special reducer for hydrating the state. Special case for next-redux-wrapper

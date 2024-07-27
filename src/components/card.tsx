@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import cx from 'classnames';
 
