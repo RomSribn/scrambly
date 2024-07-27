@@ -1,3 +1,5 @@
-export { FbIcon } from './fb';
-export { InstagramIcon } from './instagram';
-export { LinkedinIcon } from './linkedin';
+export { AmazonIcon } from './amazon';
+export { CheckCircleIcon } from './check-circle';
+export { GiftIcon } from './gift';
+export { SpinnerIcon } from './spinner';
+export { VisaIcon } from './visa';

@@ -1,20 +1,31 @@
 import { createSlice, createAsyncThunk, SerializedError } from '@reduxjs/toolkit';
-import { AppState } from '../store';
 import { HYDRATE } from 'next-redux-wrapper';
-import httpClient from 'services/http';
 
-export const getWithdrawSuccess = createAsyncThunk('withdraw/Success', async () => {
-  const response = await httpClient('/withdraw');
-  return response.data;
-});
+import httpClient from 'services/http';
+import { CardType } from 'utils/interfaces';
+import { AppState } from '../store';
+
+export interface GetWithdrawSuccessRequest {
+  price: number;
+  type: CardType;
+}
+
+export const getWithdrawSuccess = createAsyncThunk(
+  'withdraw/Success',
+  async ({ price, type }: GetWithdrawSuccessRequest) => {
+    const response = await httpClient.get('/withdraw', { params: { price, type } });
+    return response.data;
+  }
+);
 
 interface WithdrawState {
-  selectedCardId: string | null;
+  selectedCardId: number | null;
   amount: number;
   bonus: number;
   commission: number;
   error: SerializedError | null;
   status: string | null;
+  loading: boolean;
 }
 
 const initialState: WithdrawState = {
@@ -23,7 +34,8 @@ const initialState: WithdrawState = {
   bonus: 0,
   commission: 0,
   error: null,
-  status: null
+  status: null,
+  loading: false
 };
 
 export const withdrawSlice = createSlice({
@@ -52,13 +64,16 @@ export const withdrawSlice = createSlice({
     }));
     builder.addCase(getWithdrawSuccess.fulfilled, (state, action) => {
       state.status = null;
+      state.loading = false;
     });
     builder.addCase(getWithdrawSuccess.pending, (state) => {
-      state.status = 'Please wait a moment…';
+      state.status = 'Withdrawing…';
+      state.loading = true;
     });
     builder.addCase(getWithdrawSuccess.rejected, (state, action) => {
       state.status = action.error.message || 'An error occurred';
       state.error = action.error;
+      state.loading = false;
     });
   }
 });

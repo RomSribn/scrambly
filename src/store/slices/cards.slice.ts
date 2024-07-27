@@ -1,21 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AppState } from '../store';
 import { HYDRATE } from 'next-redux-wrapper';
-
-interface Card {
-  id: string;
-  type: 'visa' | 'amazon';
-  amount: number;
-  bonus?: number;
-  commission?: number;
-}
+//
+import { Card } from 'utils/interfaces';
+import { cards } from '../mocks';
+import { AppState } from '../store';
 
 interface CardsState {
   cardList: Card[];
 }
 
 const initialState: CardsState = {
-  cardList: []
+  cardList: cards
 };
 
 export const cardsSlice = createSlice({
